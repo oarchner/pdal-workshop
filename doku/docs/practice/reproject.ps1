@@ -1,0 +1,1 @@
+Get-ChildItem las_*.laz | foreach { pdal translate .\$($_.BaseName).laz .\$($_.BaseName)_ps.laz reprojection --filters.reprojection.in_srs="EPSG:25832" --filters.reprojection.out_srs="EPSG:3857" }

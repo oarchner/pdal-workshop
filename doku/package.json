@@ -1,0 +1,20 @@
+{
+  "name": "site",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "oliver.archner@uni-bayreuth.de",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "vuepress": "^2.0.0-beta.61",
+    "vuepress-plugin-copy-code2": "^2.0.0-beta.182",
+    "vuepress-plugin-md-enhance": "^2.0.0-beta.185"
+  },
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "dependencies": {
+    "vuepress-plugin-copy-code": "^0.0.1"
+  }
+}

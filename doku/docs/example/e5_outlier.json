@@ -1,0 +1,8 @@
+[
+    "crop2014.laz",
+    {
+      "type": "filters.expression",
+      "expression": "(Z>=450)"
+    },
+    "crop2014g.laz"
+]

@@ -1,0 +1,10 @@
+[
+    "las_a_2014.laz",
+    "las_b_2014.laz",
+    "las_c_2014.laz",
+    "las_d_2014.laz",    
+    {
+        "type": "filters.merge"
+    },
+    "merge2014.laz"
+]

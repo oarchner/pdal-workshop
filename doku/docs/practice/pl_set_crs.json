@@ -1,0 +1,8 @@
+[
+    "input.las",
+    {
+        "type":"writers.las",
+        "filename":"outputfile.las",
+        "a_srs": "EPSG:25832"
+    }
+]

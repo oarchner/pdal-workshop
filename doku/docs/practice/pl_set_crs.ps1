@@ -1,0 +1,1 @@
+Get-ChildItem las_*.laz | foreach { pdal translate .\$($_.BaseName).laz .\$($_.BaseName)_utm.laz --writers.las.a_srs="EPSG:25832" }   

@@ -1,0 +1,19 @@
+[
+    "crop2014g.laz",
+    {
+      "type": "filters.assign",
+      "value": "Classification = 0"
+    },
+    {
+       "type":"filters.smrf",     
+       "cell": 0.5
+    },
+    {
+       "type":"filters.expression",
+       "expression":"Classification==2"
+    },
+    {
+    "type":"writers.las",
+    "filename":"ground2014g.laz"
+    }    
+ ]
