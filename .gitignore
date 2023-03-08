@@ -4,3 +4,4 @@
 /doku/docs/.vuepress/dist
 /data
 *.qgz
+pdal-ws.zip
