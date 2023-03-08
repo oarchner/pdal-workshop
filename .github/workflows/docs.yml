@@ -18,6 +18,6 @@ jobs:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: oarchner/pdal-workshop
         TARGET_BRANCH: gh_pages
-        BUILD_SCRIPT: yarn && yarn docs:build
+        BUILD_SCRIPT: yarn docs:build
         BUILD_DIR: doku/docs/.vuepress/dist/  
  
