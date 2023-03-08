@@ -8,7 +8,7 @@ export default defineUserConfig({
   description: 'Point Cloud Verarbeitung und Analyse mit PDAL',
   plugins: [copyCodePlugin(), mdEnhancePlugin({
     mermaid: true, container: true, tabs: true, sub: true, sup: true,
-  })],
+  })], 
   theme: defaultTheme({
     contributors:false,
     sidebar: [
