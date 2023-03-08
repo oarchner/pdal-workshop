@@ -11,14 +11,13 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v3
-    - run: yarn --cwd doku/docs docs:build      
-    - name: deploy 
-      uses: crazy-max/ghaction-github-pages@v2
-      with:
-          # deploy to gh-pages branch
-          target_branch: gh-pages
-          # deploy the default output dir of VuePress
-          build_dir: /doku/docs/.vuepress/dist
-        env:          
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    
+    - name: dependencies
+      run: yarn --cwd doku
+    - name: vuepress-deploy
+      uses: jenkey2011/vuepress-deploy@master
+      env:        
+        TARGET_REPO: oarchner/pdal-workshop
+        TARGET_BRANCH: gh_pages
+        BUILD_SCRIPT: yarn --cwd doku/docs docs:build
+        BUILD_DIR: doku/docs/.vuepress/dist/  
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
