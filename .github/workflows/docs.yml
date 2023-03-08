@@ -9,15 +9,16 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout
-      uses: actions/checkout@master
-
+    - name: checkout
+      uses: actions/checkout@v3
+    - name: dependencies
+      run: yarn
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         TARGET_REPO: oarchner/pdal-workshop
         TARGET_BRANCH: gh_pages
-        BUILD_SCRIPT: yarn && yarn --cwd doku/docs docs:build
+        BUILD_SCRIPT: yarn --cwd doku/docs docs:build
         BUILD_DIR: doku/docs/.vuepress/dist/  
  
