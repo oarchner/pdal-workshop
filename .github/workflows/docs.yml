@@ -16,7 +16,6 @@ jobs:
     - name: vuepress-deploy
       uses: jenkey2011/vuepress-deploy@master
       env:        
-        TARGET_REPO: oarchner/pdal-workshop
         TARGET_BRANCH: gh_pages
         BUILD_SCRIPT: yarn --cwd doku/docs docs:build
         BUILD_DIR: doku/docs/.vuepress/dist/  
