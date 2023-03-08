@@ -19,5 +19,7 @@ export default defineUserConfig({
     ],
     logo: '/bubbles.png',
   }),
-  base: '/pdal-workshop/'
+  base: '/pdal-workshop/',
+  dest: '../docs/'
+
 });
