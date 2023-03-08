@@ -2,51 +2,34 @@
 
 ## 1. Software Installation
 
-- [QGIS](https://qgis.org/de/site/forusers/download.html)
-- [Visual Studio Code](https://code.visualstudio.com/Download)
+- [QGIS Version >= 3.28](https://qgis.org/de/site/forusers/download.html)
 - [Conda Package Management System](https://docs.conda.io/en/latest/miniconda.html)
+- [PDAL](https://pdal.io/en/latest/)
   ```bash
   # Conda aktualisieren
   conda update conda
   # Environment anlegen
   conda create --name pdal
-  # Environment anzeigen
-  conda env list
-  # Packages in Environment anzeigen
-  conda list
   # Environment aktivieren
   conda activate pdal
-  # Environment entfernen (erst am Ende des Workshops!)
-  conda remove -n pdal
-  ```
-- [PDAL](https://pdal.io/en/latest/)
-  ```bash
-  # Environment aktivieren
-  conda activate pdal
-  # PDAL
+  # PDAL latest
   conda install -c conda-forge pdal python-pdal gdal
   ```
 
-::: note
-Falls es bei der Installation unter Windows ein Problem mit der OpenSSL Bibliothek gibt, hilft folgendes Vorgehen:
-```bash
-COPY 
- c:\Users\<USERNAME>\miniconda3\Library\bin\libcrypto-1_1-x64.dll
- c:\Users\<USERNAME>\miniconda3\Library\bin\libssl-1_1-x64.dll  
- TO
-c:\Users\<USERNAME>\miniconda3\DLLs 
-```
-:::
+Eine Texteditor wie nano oder Visual Code wird für die bearbeitung der JSON-Dateien benötigt.
 
 ## 2. Workshop Daten
 
-Bitte entpacke die Datei [PDAL-Workshop.zip]() in ein lokales Verzeichnis
+[pdal-ws.zip](https://cloud.bayceer.uni-bayreuth.de/index.php/s/DErPUXFceXZlcfE) 
 
+Entpacken nach: 
 ```bash 
-# Vorschlag
-C:\Users\<NAME>\Documents\PDAL-WS
+# Linux
+/home/user/pdal-ws
+
+# Windows
+C:\Users\<NAME>\Documents\pdal-ws
 ```
-Das Verzeichnis wird in der Dokumentation als __'WS-Verzeichnis'__ bezeichnet
 
 __Datenquelle und Lizenz__
 
@@ -81,6 +64,6 @@ __[3D Map View](https://docs.qgis.org/3.28/en/docs/user_manual/map_views/3d_map_
 ![](./QGIS-3d-view-las.png)  
 
 ::: note
-Um das Handling von großen Point Cloud Daten zu verbesseren, erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine sog. [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung '*.copc.laz' im Verzeichnis der Originaldatei. Sie dient als Cache und muss zur Zeit noch manuelle gelöscht werden, falls sich die Originaldatei ändert. 
+Um das Handling von großen Point Cloud Daten zu verbesseren, erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine sog. [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung '*.copc.laz' im Verzeichnis der Originaldatei. Sie dient als Cache und muss zur Zeit noch manuelle gelöscht werden, falls die Originaldatei geändert wird. 
 ::: 
 
