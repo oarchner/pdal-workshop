@@ -36,7 +36,7 @@ pdal --version
 ## Anwendungen
 
 ::: info
-Bei allen Anwendungen kann der Log-Level zur Steuerung der Log Meldungen in der Konsole über das Flag -v [0-8] gesetzt werden.
+Bei allen Anwendungen kann der Log-Level zur Steuerung der Log-Meldungen in der Konsole über das Flag -v [0-8] gesetzt werden.
 :::
 
 ### Info
@@ -86,7 +86,7 @@ a. Alle vorhandenen Stages auflisten
 pdal --drivers
 ```
 
-b. Kleinste mögliche Pipeline:
+b. Kleinste mögliche Pipeline `pl_hello.json`:
 @[code](./pl_hello.json)
 c. Pipeline Start:
 

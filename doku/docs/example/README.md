@@ -19,7 +19,7 @@ Wechsle anschließend mit 'cd' in das WS-Verzeichnis.
 Pipeline
 
 - Input: alle Dateien mit der Endung \*2014.laz im WS-Verzeichnis
-- Output: Datei 'merge2014.laz'
+- Output: Datei `merge2014.laz`
 
 ::: details Pipeline e1_merge.json
 @[code](./e1_merge.json)
@@ -35,7 +35,7 @@ pdal pipeline e1_merge.json
 
 ## 2. Crop
 
-Beschneiden der Datei merge2014.laz auf die rechteckige Grenze des Untersuchungsgebietes: LL(640007;5583845), UR(640087;5583934)
+Beschneiden der Datei `merge2014.laz` auf die rechteckige Grenze des Untersuchungsgebietes: LL(640007;5583845), UR(640087;5583934)
 
 ::: details Pipeline e2_crop.json
 @[code](./e2_crop.json)
@@ -82,7 +82,7 @@ Betrachte die Datei `crop2014.laz` in QGIS
    :::
 
 ::: info
-Um das Handling von großen Point Cloud Daten zu verbesseren, erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine sog. [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung '\*.copc.laz' im Verzeichnis der Originaldatei. Sie dient als Cache und muss zur Zeit noch manuelle gelöscht werden, falls die Originaldatei geändert wird.
+Um das Handling von großen Point Cloud Daten zu verbessern erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine sog. [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung `.copc.laz` im Verzeichnis der Originaldatei. Sie dient als Cache und muss zur Zeit noch manuell gelöscht werden, falls die Originaldatei geändert wird.
 :::
 
 ::: info
@@ -153,8 +153,8 @@ Lade die Datei `classification.geojson` in QGIS und erzeuge eine 'Categorized Sy
 ## 7. Vector Overlay mit Filter
 
 Pipeline:  
- a. Overlay von crop2014g.laz mit dem Polygon aus der Datei 'classification.geojson'  
- b. Extraktion aller Punkte innerhalb der Schutzwälder (Classification==33)
+ a. Overlay von `crop2014g.laz` mit dem Polygon aus der Datei `classification.geojson`  
+ b. Extraktion aller Punkte innerhalb der Schutzwälder: `(Classification==33)`
 
 ::: details Pipeline e7_overlay_expression.json
 @[code](./e7_overlay_expression.json)
@@ -275,10 +275,10 @@ c. Kontrolle in QGIS
 ![3D View](./ex10_QGIS_3DView.png)
 :::
 
+
+<!-- 
 ## 11. DOP als RGB Farbwert
-
 Zuweisen von Farbwerten aus einer Raster-Datei
-
 ```json
 {
   "type": "filters.colorization",
@@ -286,7 +286,7 @@ Zuweisen von Farbwerten aus einer Raster-Datei
 }
 ```
 
-<!-- a. Pipeline aus []()
+a. Pipeline aus []()
 ::: details e11_dop.json
 @[code](./e11_dop.json)
 :::
