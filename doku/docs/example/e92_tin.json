@@ -10,6 +10,9 @@
         "height": 160,
         "origin_x": 640007,
         "origin_y": 5583845
-    },
-    "dgm2014t.tif"
+    },    
+    {
+        "type": "writers.raster",
+        "filename":"ground2014t.tif"
+    }
 ]

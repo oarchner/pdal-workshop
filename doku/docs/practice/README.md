@@ -2,124 +2,124 @@
 
 ## Starten der Umgebung
 
-a. Starten der Kommandozeile durch Aufruf der Conda Console aus dem Startmenü  
+a. Starten der Kommandozeile durch Aufruf der Conda Konsole aus dem Startmenü  
 b. Aktivieren des pdal Environments
-   ```bash
-   conda activate pdal
-   ```
-c. Kontrolle ob PDAL Bibliothek gestartet werden kann
-   ```bash
-   # Usage anzeigen
-   pdal
-   # Version ausgeben
-   pdal --version
-   ```
 
+```bash
+conda activate pdal
+```
+
+c. Wechsel in das WS-Verzeichnis
+::: tabs  
+ @tab Linux
+
+```bash
+cd /home/<NAME>/pdal-ws
+```
+
+@tab Windows
+
+```bash
+cd c:\Users\<NAME>\Documents\pdal-ws
+```
+
+:::
+d. PDAL Anwendung starten
+
+```bash
+# Usage anzeigen
+pdal
+# Version ausgeben
+pdal --version
+```
 
 ## Anwendungen
 
+::: info
+Bei allen Anwendungen kann der Log-Level zur Steuerung der Log Meldungen in der Konsole über das Flag -v [0-8] gesetzt werden.
+:::
+
 ### Info
 
-a. Wechsel in das WS-Verzeichnis
-   ```bash
-   cd c:\Users\<NAME>\Documents\PDAL
-   ```
-b. Hilfe zur Info Anwendung 
-   ```bash
-   pdal info --help
-   ```
-c. Ausgabe des ersten Punktes
-   ```bash
-   pdal info sample.laz -p 0
-   ```
-d. Ausgabe von Metainformationen
-   ```bash
-   pdal info sample.laz --metadata
-   ```
+a. Ausgabe des ersten Punktes
 
+```bash
+pdal info sample.laz -p 0
+```
 
-### Merge 
+::: info
+Die Werte der Dimension Classification sind in der [LAS-Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) der American Society for Photogrammetry & Remote Sensing (ASPRS) wie folgt definiert:
 
-a. Hilfe zur Merge Anwendung 
-   ```bash
-   pdal merge --help
-   ```
+| Wert  | Meaning                       |
+| ----- | ----------------------------- |
+| 0     | Created, Never Classified     |
+| 1     | Unclassified2                 |
+| 2     | Ground                        |
+| 3     | Low Vegetation                |
+| 4     | Medium Vegetation             |
+| 5     | High Vegetation               |
+| 6     | Building                      |
+| 7     | Low Point (Noise)             |
+| 8     | Model Key-Point (Mass Point)  |
+| 9     | Water                         |
+| 10    | Reserved for ASPRS Definition |
+| 11    | Reserved for ASPRS Definition |
+| 12    | Overlap Points3               |
+| 13-31 | Reserved for ASPRS Definition |
 
-b. Vereinigen von mehreren Dateien zu einer Datei
-   ```bash
-   pdal merge las_a_2014.laz las_b_2014.laz merge2014.laz
-   ```
-   
+:::
+
+### Merge
+
+a. Vereinigen von mehreren Dateien zu einer Datei
+
+```bash
+# Achtung: Dieses Commando dauert ein paar Sekunden ...
+pdal merge las_a_2014.laz las_b_2014.laz las_c_2014.laz las_d_2014.laz merge2014.laz
+```
+
 ### Pipeline
 
-Pipelines erlauben es uns einen kompletten Workflow aus unterschiedlichen Stages aufzubauen. Sie werden im [JSON-Format](http://www.json.org) als ein Array definiert und bestehen immer aus einer Reader- und einer Writer-Stage. Die einzelnen Stages sind Elemente des Arrays und werden der Reihe nach aufgerufen.
+a. Alle vorhandenen Stages auflisten
 
-a. Hilfe zur Pipeline Anwendung 
-   ```bash
-   pdal pipeline --help
-   ```
+```bash
+pdal --drivers
+```
 
 b. Kleinste mögliche Pipeline:
-
 @[code](./pl_hello.json)
-   
-c. Filter Stages
+c. Pipeline Start:
 
-   ```json 
-   [
-      "input.laz",
-      {
-         // Stage A in Object Notation
-      },
-      {
-         // Stage B in Objekt Notation 
-      },
-      "output.laz"
-   ]
-   ```
+```bash
+pdal pipeline pl_hello.json
+```
 
-d. Alle vorhandenen Stages auflisten
-   
-   ```bash
-   pdal --drivers
-   ```
+d. Pipeline Start mit Überschreiben der Reader- und Writer-Stage
 
-e. Beispiel Pipeline zum Croppen eine LAS Datei
-   @[code](./pl_crop.json)
-
-   
-f. Pipeline Start
-   ```bash
-   pdal pipeline pl_crop.json
-   ```
-g. Pipeline Start mit Überschreiben der Reader- und Writer-Stage
-   ```bash
-   pdal pipeline --readers.las.filename=merge.laz --writers.las.filename=crop.laz pl_crop.json
-   ```
+```bash
+pdal pipeline --readers.las.filename=sample.laz --writers.las.filename=sample2.laz pl_hello.json
+```
 
 ### Translate
 
-a. Hilfe zur Translate Anwendung 
-   ```bash
-   pdal translate --help
-   ```
+a. Dateiformatkonvertierung
 
-b. Dateiformatkonvertierung
-   ```bash
-   pdal translate sample.laz sample.las
-   ```
-c. Filteraufruf mit Argumenten
-   ```bash
-   # Crop filter
-   pdal translate merge.laz crop.laz crop --filters.crop.polygon="Polygon ((640007 5583845,640087 5583845,640087 5583934,640007 5583934, 640007 5583845))"
-   
-   # LAS Writer mit Option zum Setzen des CRS
-   pdal translate merge.laz merge_utm.laz --writers.las.a_srs="EPSG:25832"
-   ```
+```bash
+pdal translate sample.laz sample.las
+```
+
+b. Filteraufruf mit Argumenten
+
+```bash
+# LAS Writer mit Option zum Setzen des CRS
+pdal translate sample2.laz sample2_utm.laz --writers.las.a_srs="EPSG:25832"
+```
+
 c. Aufruf einer Pipeline-Datei mit Überschreiben von Ein- und Ausgabedatei
-   ```bash
-   pdal translate --json pl_crop.json merge.laz crop.laz
-   ```
+
+```bash
+pdal translate --json pl_hello.json sample.laz sample2.laz
+```
 
 ## Stapelverarbeitung
 
@@ -129,94 +129,16 @@ Das folgende Skript ruft die [Translate-Anwendung](#translate) für mehrere Date
 
 ::: tabs
 
-@tab Powershell     
-
-@[code](./reproject.ps1)
-
 @tab Bash
 
 @[code](./reproject.bash)
 
-:::
+@tab Powershell
 
-Alternativ zur Verwendung der Kommandozeilenargumente lässt sich eine Pipeline auch aus einem Stapelverarbeitungs-Skript aufrufen. Die übergebenen Dateinamen überschreiben den Reader und Writer im Pipeline Skript:
-
-@[code](./pl_reproject_crop.json)
-
-::: tabs
-
-@tab Powershell     
-
-@[code](./pl_reproject.ps1)
-
-@tab Bash
-
-@[code](./pl_reproject.bash)
+@[code](./reproject.ps1)
 
 :::
 
 ::: info
-   Umfangreiche Möglichkeiten zur Automatisierung von Aufgaben ermöglicht die [Python PDAL Bibliothek](https://pypi.org/project/pdal/)
-::: 
-
-
-## Ausgewählte Filterfunktionen
-
-Eine gesamte Liste aller Filterfunktionen befindet sich auf der [PDAL Homepage](https://pdal.io/en/latest/stages/filters.html).
-
-### [filters.expression](https://pdal.io/en/latest/stages/filters.expression.html)
-   Nur Punkte bei denen die Expression wahr ist, werden ausgegeben
-   ```json
-   {
-   "type": "filters.expression",
-   "expression": "(Z>=10 && Z<50)"
-   }
-   ```   
-
-### [filters.outlier](https://pdal.io/en/latest/stages/filters.outlier.html)
-   Klassifizieren von Ausreißern mit Radius
-   ```json
-   {
-        "type":"filters.outlier",
-        "method":"radius", // 
-        "radius":1.0, // Distanz in Map Units
-        "min_k":4 // Mindestanzahl von Nachbarn 
-    }
-   ```
-
-   Klassifizieren von Ausreißern über Standardabweichung 
-   ```json      
-      {
-        "type":"filters.outlier",
-        "method":"statistical",
-        "mean_k":12,  // Anzahl der Nachbarn 
-        "multiplier":2 // Grenzwert 2 * Standardabweichung
-      }  
-   ```
-::: note
-   Eine weitere Möglichkeit zur Detektion und Klassifizierung von Punkten mit niedrigen Höhen ist die Anwendung des ELM Filters nach Chen.   
-   [filters.elm](https://pdal.io/en/latest/stages/filters.elm.html)
+Umfangreichere Möglichkeiten zur Automatisierung bietet die [Python PDAL Bibliothek](https://pypi.org/project/pdal/)
 :::
-
-### [filters.overlay](https://pdal.io/en/latest/stages/filters.overlay.html)
-   
-   Overlay aus einer JSON-Datei mit Zuweisung von Werten in einer Dimension.
-   ```json
-    {
-      "type":"filters.overlay",
-      "datasource":"classification.geojson",
-      "layer":"classification",
-      "column":"name",
-      "dimension":"Classification",
-    }
-   ```
-
-
-### [filters.colorization](https://pdal.io/en/latest/stages/filters.colorization.html)
-   Zuweisen von Farbwerten aus einer Raster-Datei
-   ```json
-   {
-     "type":"filters.colorization",
-     "raster":"dop2010.tif",      
-   }
-   ```

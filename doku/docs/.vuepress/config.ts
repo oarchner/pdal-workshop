@@ -12,7 +12,7 @@ export default defineUserConfig({
   theme: defaultTheme({
     contributors:false,
     sidebar: [
-      '/intro/',
+      '/setup/',
       '/overview/',
       '/practice/',
       '/example/'

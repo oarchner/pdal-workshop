@@ -15,8 +15,13 @@
         "radius":20.0
     },
     {
+        "type":"filters.expression",
+        "expression":"(Classification!=2) && (Classification!=30) && (ClusterID > 0)"
+    },
+    {
         "type":"writers.las",
         "filename":"tree2014.laz",
-        "extra_dims":"all"
+        "extra_dims":"ClusterID=uint8",
+        "minor_version":4
     }
 ]

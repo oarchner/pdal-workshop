@@ -2,11 +2,14 @@
 home: true
 heroImage: /pdal_logo.webp
 actions:
-  - text: Einführung
-    link: /intro/
+  - text: Setup
+    link: /setup/
     type: primary
+  - text: Überblick
+    link: /overview/
+    type: secondary 
   - text: Praxis
-    link: /practice/
+    link: /overview/
     type: secondary 
   - text: Beispiel
     link: /example/
