@@ -4,8 +4,14 @@
 
 - [QGIS Version >= 3.28](https://qgis.org/de/site/forusers/download.html)
 - [Conda Package Management System](https://docs.conda.io/en/latest/miniconda.html)
+
+::: info 
+[Update Skript für OSGeo Live 15](./setup.sh)
+::: 
+
 - [PDAL](https://pdal.io/en/latest/)
-  ```bash
+  ::: details PDAL Installation in Conda
+   ```bash
   # Conda aktualisieren
   conda update conda
   # Environment anlegen
@@ -15,14 +21,14 @@
   # PDAL latest
   conda install -c conda-forge pdal python-pdal gdal
   ```
+  :::
 
-Eine Texteditor wie nano oder Visual Code wird für die bearbeitung der JSON-Dateien benötigt.
+Ein Texteditor wie z. B. [nano](https://www.nano-editor.org/dist/latest/nano.html) oder [Visual Studio Code](https://code.visualstudio.com/) wird für die Bearbeitung der JSON-Dateien benötigt.
 
 ## 2. Workshop Daten
 
-[pdal-ws.zip](https://cloud.bayceer.uni-bayreuth.de/index.php/s/DErPUXFceXZlcfE) 
+Bitte entpacke das Archiv [pdal-ws.zip](https://cloud.bayceer.uni-bayreuth.de/index.php/s/DErPUXFceXZlcfE/download) nach:
 
-Entpacken nach: 
 ```bash 
 # Linux
 /home/user/pdal-ws
@@ -37,7 +43,7 @@ Freistaat Thüringen, Landesamt für Bodenmanagement und Geoinformation, [Geopor
 
 
 ::: info
-Die [LAS Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) findest du auf der Seite des ASPRS.
+Detaillierte Informationen zum LAS-Format findest du in der [LAS Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) 
 ::: 
 
 ## 3. Visualisieren von Punktwolkendaten in QGIS

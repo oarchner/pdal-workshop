@@ -16,7 +16,7 @@
 
 ### Dimensions
 
-Alle PDAL Punktdaten werden als ein Menge von Dimensionen gespeichert. Dimensionen besitzen einen Namen und einen Datentyp. Der Datentyp wird zur Laufzeit bestimmt, es ist jedoch ein Standarddatentyp für jede Dimension vorhanden.
+Alle PDAL Punktdaten werden als ein Menge von Dimensionen gespeichert. Dimensionen besitzen einen __Namen__ und einen __Datentyp__. Der Datentyp wird zur Laufzeit bestimmt, es ist jedoch ein Standarddatentyp für jede Dimension vorhanden.
 
 __Beispiel__: X(double), Y(double), Z(double), Intensity(uint16), ReturnNumber(uint8), HeightAboveGround(double), Intensity(uint16)
 
@@ -42,6 +42,8 @@ Beispiel: [writer.las](https://pdal.io/en/latest/stages/writers.las.html),[write
 **Filter**:
 Filter arbeiten mit Daten als sog. Inline-Operationen im Data-Flow. Einige Filter können nur mit bestimmten Dimensionen arbeiten, z. B. kann 'filters.reprojection' nur XYZ-Koordinaten reprojezieren. 
 
+Beispiel: [filters.expression](https://pdal.io/en/latest/stages/filters.expression.html), [filters.reprojection](https://pdal.io/en/latest/stages/filters.reprojection.html)
+
 ### Pipeline
 
 Eine Pipeline besteht aus unterschiedlichen Stage-Elementen. Die Elemente sind über einen Data-Flow miteinander verbunden:
@@ -61,5 +63,9 @@ Mit der zunehmenden Integration von PDAL in die QGIS Umgebung werden die PDAL-Fu
 
 ## Implementierungen
 
-- Language Binding ([C++](https://pdal.io/en/latest/api/cpp/index.html),[Python](https://pypi.org/project/pdal/),[Java](https://pdal.io/en/latest/java.html))
+- Language Binding
+    + [C++](https://pdal.io/en/latest/api/cpp/index.html)
+    + [Python](https://pypi.org/project/pdal/)
+    + [Java](https://pdal.io/en/latest/java.html)
+
 - [CLI Anwendungen](https://pdal.io/en/latest/apps/index.html)

@@ -153,8 +153,9 @@ Betrachte die Ground Datei in QGIS:
 :::
 
 
-## 9. DGM Erzeugung 
+## 9. DGM
 
+### 9.1 Direkter Export 
 a. GDAL Export 
 ::: details Aufruf
 ```bash
@@ -181,18 +182,48 @@ Karte ohne NODATA Lücken
 ![](./ex9_QGIS_Map3.png)
 :::
 
-<!--
+### 9.2 Triangulation 
+
+a. Pipeline aus [fiters.delaunay](https://pdal.io/en/latest/stages/filters.delaunay.html) und [filters.faceraster](https://pdal.io/en/latest/stages/filters.faceraster.html)
+::: details e92_tin.json
+@[code](./e92_tin.json)
+:::
+
+b. Aufruf
+::: details
+```bash
+   pda pipeline e92_tin.json
+```
+:::
+
+c. Kontrolle in QGIS
+<!-- ::: details Karte 
+![](./ex92_QGIS_Map.png)
+::: -->
+
+
 ## 10. Baum Klassifikation
 
+a. Pipeline aus []()
+::: details e10_tree.json
+@[code](./e10_tree.json)
+:::
+
+b.Aufruf
 ::: details
-//TBD
+```bash
+pda pipeline e10_tree.json
+```
 :::
--->
 
-<!--
 ## 11. DOP als RGB Farbwert
-
-::: details Lösung
-
+<!-- a. Pipeline aus []()
+::: details e11_dop.json
+@[code](./e11_dop.json)
 :::
--->
+b.Aufruf
+::: details
+```bash
+pda pipeline e11_dop.json
+```
+::: -->

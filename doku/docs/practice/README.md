@@ -155,6 +155,10 @@ Alternativ zur Verwendung der Kommandozeilenargumente lässt sich eine Pipeline 
 
 :::
 
+::: info
+   Umfangreiche Möglichkeiten zur Automatisierung von Aufgaben ermöglicht die [Python PDAL Bibliothek](https://pypi.org/project/pdal/)
+::: 
+
 
 ## Ausgewählte Filterfunktionen
 

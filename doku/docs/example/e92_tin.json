@@ -1,0 +1,15 @@
+[
+    "ground2014g.laz",
+    {
+        "type": "filters.delaunay"
+    },
+    {
+        "type": "filters.faceraster",
+        "resolution": 0.5,
+        "width": 160,
+        "height": 160,
+        "origin_x": 640007,
+        "origin_y": 5583845
+    },
+    "dgm2014t.tif"
+]

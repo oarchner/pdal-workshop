@@ -1,0 +1,22 @@
+[
+    "crop2014g.laz",
+    {
+        "type":"filters.hag_delaunay"
+    },
+    {
+        "type":"filters.sort",
+        "dimension":"HeightAboveGround",
+        "order":"DESC"
+    },
+    {
+        "type":"filters.litree",
+        "min_points":50,
+        "min_height":10.0,
+        "radius":20.0
+    },
+    {
+        "type":"writers.las",
+        "filename":"tree2014.laz",
+        "extra_dims":"all"
+    }
+]
