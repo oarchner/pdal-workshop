@@ -1,9 +1,0 @@
-[
-    "input.laz",
-    { "type": "filters.reprojection", "out_srs": "EPSG:3857" , "in_srs": "EPSG:25832"},
-    {
-      "type": "filters.crop",
-      "polygon": "Polygon ((640007 5583845,640087 5583845,640087 5583934,640007 5583934, 640007 5583845))"
-    },
-    "output.laz"
-  ]

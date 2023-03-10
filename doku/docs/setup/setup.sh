@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# Update File for OSGeo15
+# Oliver Archner (oliver.archner@uni-bayreuth.de)
+# 10.3.2023
+
 echo "QGIS update"
 sudo apt -y install gnupg software-properties-common
 sudo wget -O /etc/apt/keyrings/qgis-archive-keyring.gpg https://download.qgis.org/downloads/qgis-archive-keyring.gpg

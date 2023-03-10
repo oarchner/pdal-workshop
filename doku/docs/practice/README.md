@@ -3,7 +3,7 @@
 ## Starten der Umgebung
 
 a. Starten der Kommandozeile durch Aufruf der Conda Konsole aus dem Startmenü  
-b. Aktivieren des pdal Environments
+b. Aktivieren der pdal Umgebung
 
 ```bash
 conda activate pdal
@@ -48,7 +48,9 @@ pdal info sample.laz -p 0
 ```
 
 ::: info
-Die Werte der Dimension Classification sind in der [LAS-Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) der American Society for Photogrammetry & Remote Sensing (ASPRS) wie folgt definiert:
+Die Werte der Classification Dimension sind in der [LAS-Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) der American Society for Photogrammetry & Remote Sensing (ASPRS) wie folgt definiert:
+
+
 
 | Wert  | Meaning                       |
 | ----- | ----------------------------- |
@@ -86,9 +88,9 @@ a. Alle vorhandenen Stages auflisten
 pdal --drivers
 ```
 
-b. Kleinste mögliche Pipeline `pl_hello.json`:
+b. Kleinste mögliche Pipeline `pl_hello.json`
 @[code](./pl_hello.json)
-c. Pipeline Start:
+c. Pipeline Start
 
 ```bash
 pdal pipeline pl_hello.json
@@ -123,7 +125,7 @@ pdal translate --json pl_hello.json sample.laz sample2.laz
 
 ## Stapelverarbeitung
 
-Point Cloud Daten werden aufgrund ihrer Größe oft in mehrere kleine Dateien aufgeteilt. Skripts zur Stapelverarbeiung helfen uns unserer Arbeitsschritte zu automatisieren.
+Point Cloud Daten werden aufgrund ihrer Größe oft in mehrere kleine Dateien aufgeteilt. Skripts zur Stapelverarbeitung helfen uns unserer Arbeitsschritte zu automatisieren.
 
 Das folgende Skript ruft die [Translate-Anwendung](#translate) für mehrere Dateien im Verzeichnis auf und führt einen [Reproject](https://pdal.io/en/latest/stages/filters.reprojection.html) durch:
 

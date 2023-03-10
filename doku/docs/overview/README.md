@@ -13,7 +13,7 @@ graph LR;
     s2-->Writer;
 ```
 
-Pipelines sind z.B. über die Anwendung ``pdal pipeline`` ausführbar.
+Pipelines sind z. B. über die Anwendung ``pdal pipeline`` ausführbar.
 
 ### Stages
 
@@ -22,11 +22,11 @@ Stages sind ein Überbegriff für Elemente in einer Pipeline.
 PDAL unterscheidet die folgende drei Typen:
 
   - **Reader**:
-  Reader lesen Dimensions und erzeugen einen Datenfluss aus Dimensions. Sie stehen überlicherweise am Anfang einer Pipeline.  
+  Reader lesen Dimensions und erzeugen einen Datenfluss aus Dimensions. Sie stehen üblicherweise am Anfang einer Pipeline.  
   Beispiel: [readers.las](https://pdal.io/en/latest/stages/readers.las.html#readers-las), [readers.txt](https://pdal.io/en/latest/stages/readers.text.html#readers-text), [readers.gdal](https://pdal.io/en/latest/stages/readers.gdal.html#readers-gdal)
 
   - **Writer**:
-  Writer konsumieren Dimensions aus dem Datafluss und Schreiben ihre Daten in die Ausgabe. Writer stehen deswegen am Ende der Pipeline.   
+  Writer konsumieren Dimensions aus dem Datenfluss und Schreiben ihre Daten in die Ausgabe. Writer stehen deswegen am Ende der Pipeline.   
   Beispiel: [writer.las](https://pdal.io/en/latest/stages/writers.las.html),[writers.raster](https://pdal.io/en/latest/stages/writers.raster.html)
 
   - **Filter**:
@@ -80,4 +80,7 @@ graph TD;
 ## Referenzen
 
 + [PDAL Homepage](https://pdal.io/en/latest/)
++ [PDAL Workshop](https://pdal.io/en/latest/workshop/index.html)
++ [PDAL Tutorial](https://pdal.io/en/latest/tutorial/index.html)
++ Butler, H. Chambers, B. Hartzell, P. Glennie, C. PDAL: An open source library for the processing and analysis of point clouds. Computers & Geosciences, Volume 148, 2021, 104680, ISSN 0098-3004, [https://doi.org/10.1016/j.cageo.2020.104680](https://doi.org/10.1016/j.cageo.2020.104680)
 

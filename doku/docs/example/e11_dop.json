@@ -1,0 +1,16 @@
+[
+    "merge2014.laz",
+    
+    {
+        "type":"filters.colorization",
+        "raster":"dop2022.tif"
+    },    
+    {
+        "type":"filters.expression",
+        "expression":"(RED>0) && (Classification!=30)"
+    },
+    {
+        "type":"writers.copc",
+        "filename":"dop2014.copc.laz"
+    }
+]

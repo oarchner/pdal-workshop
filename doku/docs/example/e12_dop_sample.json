@@ -1,0 +1,26 @@
+[
+    "dop2014.copc.laz",
+    {
+        "type":"filters.overlay",
+        "dimension":"Classification",
+        "datasource":"classification.geojson",
+        "layer":"classification",
+        "column":"name"
+    },    
+    {
+        "type":"filters.assign",
+        "value": [
+            "Green = Green * 1.5 WHERE Classification == 33",            
+            "Blue = Blue * 1.5 WHERE Classification == 33"            
+        ]
+    },
+    {
+        "type":"filters.assign",
+        "value": [
+            "Green = 255 WHERE Green > 255",            
+            "Blue = 255 WHERE Blue > 255"           
+        ]
+    },
+    "dop2014s.copc.laz"
+    
+]
