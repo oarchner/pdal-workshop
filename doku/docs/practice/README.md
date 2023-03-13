@@ -122,25 +122,3 @@ c. Aufruf einer Pipeline-Datei mit Überschreiben von Ein- und Ausgabedatei
 ```bash
 pdal translate --json pl_hello.json sample.laz sample2.laz
 ```
-
-## Stapelverarbeitung
-
-Point Cloud Daten werden aufgrund ihrer Größe oft in mehrere kleine Dateien aufgeteilt. Skripts zur Stapelverarbeitung helfen uns unserer Arbeitsschritte zu automatisieren.
-
-Das folgende Skript ruft die [Translate-Anwendung](#translate) für mehrere Dateien im Verzeichnis auf und führt einen [Reproject](https://pdal.io/en/latest/stages/filters.reprojection.html) durch:
-
-::: tabs
-
-@tab Bash
-
-@[code](./reproject.bash)
-
-@tab Powershell
-
-@[code](./reproject.ps1)
-
-:::
-
-::: info
-Umfangreichere Möglichkeiten zur Automatisierung bietet die [Python PDAL Bibliothek](https://pypi.org/project/pdal/)
-:::
