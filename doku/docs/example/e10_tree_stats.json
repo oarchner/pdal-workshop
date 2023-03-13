@@ -1,0 +1,14 @@
+[
+    "tree2014.laz",
+    {
+        "type": "filters.python",
+        "script": "lib.py",
+        "function": "max_z_cluster",
+        "module": "lib"
+    },
+    {
+        "type": "writers.ogr",
+        "filename": "tree2014.geojson",        
+        "attr_dims": "ClusterID, HeightAboveGround"
+    }
+]

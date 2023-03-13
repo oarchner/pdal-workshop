@@ -247,12 +247,12 @@ pdal pipeline e09_tin.json
 ![](./ex92_QGIS_Map.png)
 :::
 
-## 10. Baum Klassifikation
+## 10. Baum Klassifikation und Analyse
 
-Pipeline aus [filters.hag_delaunay](https://pdal.io/en/latest/stages/filters.hag_delaunay.html), [filters.sort](https://pdal.io/en/latest/stages/filters.sort.html),
+Klassifikation der Bäume in einer Pipeline aus [filters.hag_delaunay](https://pdal.io/en/latest/stages/filters.hag_delaunay.html), [filters.sort](https://pdal.io/en/latest/stages/filters.sort.html),
 [filters.litree](https://pdal.io/en/latest/stages/filters.litree.html),[filters.expression](https://pdal.io/en/latest/stages/filters.expression.html) und [writers.las](https://pdal.io/en/latest/stages/writers.las.html)
 
-::: details Pipelin e10_tree.json
+::: details Pipeline e10_tree.json
 @[code](./e10_tree.json)
 :::
 
@@ -268,6 +268,29 @@ pdal -v 8 pipeline e10_tree.json
 ![2D Karte](./ex10_QGIS_MapView.png)  
 3D View   
 ![3D View](./ex10_QGIS_3DView.png)
+:::
+
+Pipeline zur Berechnung der maximalen Höhe über Grund für jeden Baum. Die Pipeline verwendet [filters.python](https://pdal.io/en/latest/stages/filters.python.html) zur Ermittlung der Höhe und schreibt das Ergebnis über [writers.ogr](https://pdal.io/en/latest/stages/writers.ogr.html) in eine GeoJSON-Datei.
+
+::: details Pipeline e10_tree_stats.json
+@[code](./e10_tree_stats.json)
+:::
+
+
+::: details Python Datei `lib.py` 
+@[code](./lib.py)
+:::
+
+::: details Aufruf
+```bash
+pdal pipeline e10_tree_stats.json
+```
+:::
+
+::: details QGIS
+
+![2D Karte mit Stats zur Höhe](./ex10_QGIS_TreeHeight.png)
+
 :::
 
 
