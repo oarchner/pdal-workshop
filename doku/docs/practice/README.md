@@ -2,8 +2,8 @@
 
 ## Starten der Umgebung
 
-a. Starten der Kommandozeile durch Aufruf der Conda Konsole aus dem Startmenü  
-b. Aktivieren der pdal Umgebung
+a. Starten der Kommandozeile durch Aufruf der Conda-Konsole aus dem Startmenü  
+b. Aktivieren der PDAL-Umgebung
 
 ```bash
 conda activate pdal
@@ -76,7 +76,7 @@ Die Werte der Classification Dimension sind in der [LAS-Format Definition](https
 a. Vereinigen von mehreren Dateien zu einer Datei
 
 ```bash
-# Achtung: Dieses Commando dauert ein paar Sekunden ...
+# Achtung: Dieser Befehl dauert ein paar Sekunden ...
 pdal merge las_a_2014.laz las_b_2014.laz las_c_2014.laz las_d_2014.laz merge2014.laz
 ```
 
@@ -112,8 +112,9 @@ pdal translate sample.laz sample.las
 
 b. Filteraufruf mit Argumenten
 
+LAS Writer mit Option zum Setzen des CRS
+
 ```bash
-# LAS Writer mit Option zum Setzen des CRS
 pdal translate sample2.laz sample2_utm.laz --writers.las.a_srs="EPSG:25832"
 ```
 

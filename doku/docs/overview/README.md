@@ -4,7 +4,7 @@
 
 ### Pipeline
 
-Pipelines bestehen aus _Stages_ und definieren einen Datenfluss aus _Dimensions_. Sie werden im [JSON-Format](http://www.json.org) als Array aus Stages definiert und bestehen immer aus einer Reader- und einer Writer-Stage. 
+Pipelines bestehen aus _Stages_ und definieren einen Datenfluss aus _Dimensions_. Sie besitzen mindestens eine Reader- und eine Writer-Stage. 
 
 ```mermaid
 graph LR;
@@ -19,14 +19,14 @@ Pipelines sind z. B. über die Anwendung ``pdal pipeline`` ausführbar.
 
 Stages sind ein Überbegriff für Elemente in einer Pipeline.
 
-PDAL unterscheidet die folgende drei Typen:
+PDAL unterscheidet die folgenden drei Typen:
 
   - **Reader**:
   Reader lesen Dimensions und erzeugen einen Datenfluss aus Dimensions. Sie stehen üblicherweise am Anfang einer Pipeline.  
   Beispiel: [readers.las](https://pdal.io/en/latest/stages/readers.las.html#readers-las), [readers.txt](https://pdal.io/en/latest/stages/readers.text.html#readers-text), [readers.gdal](https://pdal.io/en/latest/stages/readers.gdal.html#readers-gdal)
 
   - **Writer**:
-  Writer konsumieren Dimensions aus dem Datenfluss und Schreiben ihre Daten in die Ausgabe. Writer stehen deswegen am Ende der Pipeline.   
+  Writer konsumieren Dimensions aus dem Datenfluss und schreiben ihre Daten in die Ausgabe. Writer stehen deswegen am Ende der Pipeline.   
   Beispiel: [writer.las](https://pdal.io/en/latest/stages/writers.las.html),[writers.raster](https://pdal.io/en/latest/stages/writers.raster.html)
 
   - **Filter**:
@@ -35,7 +35,7 @@ PDAL unterscheidet die folgende drei Typen:
 
 ### Dimensions
 
-Dimensionen besitzen einen _Namen_ und einen _Datentyp_. Sie werden zwischen Stages über den Datenfluss ausgetauscht. Der Datentyp wird zur Laufzeit bestimmt, es ist jedoch ein Standarddatentyp für jede Dimension vorhanden.
+Dimensionen besitzen einen _Namen_ und einen _Datentyp_. Sie werden zwischen Stages über den Datenfluss ausgetauscht. Ihr Datentyp wird zur Laufzeit bestimmt. Es ist ein Standarddatentyp für jede Dimension vorhanden.
 
 **Beispiel**: X(double), Y(double), Z(double), HeightAboveGround(double), Intensity(uint16)
 

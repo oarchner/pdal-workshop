@@ -1,6 +1,6 @@
 ---
 home: true
-heroImage: /pdal_logo.webp
+heroImage: /bubbles.png
 actions:
   - text: Setup
     link: /setup/

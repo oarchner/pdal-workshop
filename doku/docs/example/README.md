@@ -5,7 +5,7 @@
 :::
 
 ::: info
-Bitte starte die Conda Console und aktiviere die PDAL Umgebung bevor du mit dem Beispiel beginnst.
+Bitte starte die Conda-Konsole und aktiviere die PDAL Umgebung bevor du mit dem Beispiel beginnst.
 
 ```bash
 conda activate pdal
@@ -56,7 +56,7 @@ Betrachte die Datei `crop2014.laz` in QGIS
 3. Datei `crop2014.laz` zur Karte hinzufügen
 4. Layer Properties aufrufen
 5. Tab Symbology aufrufen
-6. Dialog zeigt die Standard Klassifikation nach Classification Attribut
+6. Dialog zeigt die Klassifikation nach Classification Attribut
    ::: details
    ![](./ex3_QGIS-tab-symbology-las.png)
    :::
@@ -80,11 +80,11 @@ Betrachte die Datei `crop2014.laz` in QGIS
    :::
 
 ::: info
-Um das Handling von großen Point Cloud Daten zu verbessern erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung `.copc.laz` im Verzeichnis der Originaldatei. Falls sich die Originaldatei ändert, muss der Cache manuell gelöscht werden.
+Um das Handling von großen Point Cloud Daten zu verbessern, erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung `.copc.laz` im Verzeichnis der Originaldatei. Falls sich die Originaldatei ändert, muss der Cache manuell gelöscht werden.
 :::
 
 ::: info
-Weitere Möglichkeiten zur Darstellung von 3D Daten werden im QGIS-Handbuch erläutert:
+Weitere Möglichkeiten zur Darstellung von 3D-Daten werden im QGIS-Handbuch erläutert:
 
 - [Working with Point Clouds](https://docs.qgis.org/3.28/en/docs/user_manual/working_with_point_clouds/point_clouds.html#)
 - [3D Map View](https://docs.qgis.org/3.28/en/docs/user_manual/map_views/3d_map_view.html)
@@ -258,7 +258,7 @@ Klassifikation der Bäume in einer Pipeline aus [filters.hag_delaunay](https://p
 
 ::: details Aufruf
 ```bash
-# Achtung diese Beispiel dauert ein paar Sekunden bis ca. 150 Bäume erkannt werden ....
+# Achtung: Die Berechnung dauert ca. 2 min. bis ca. 150 Bäume erkannt werden ....
 pdal -v 8 pipeline e10_tree.json
 ```
 :::
