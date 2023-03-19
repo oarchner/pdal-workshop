@@ -1,8 +1,5 @@
-/doku/node_modules
-/doku/docs/.vuepress/.cache
-/doku/docs/.vuepress/.temp
-/doku/docs/.vuepress/dist
-
+/node_modules
+/doc/.vuepress/.cache
+/doc/.vuepress/.temp
+/doc/.vuepress/dist
 /data
-*.qgz
-pdal-ws.zip

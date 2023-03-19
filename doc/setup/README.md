@@ -6,13 +6,18 @@
 
 ::: details PDAL Installation in Conda
   ```bash
-# Environment anlegen
 conda create --name pdal
-# Environment aktivieren
 conda activate pdal
-# PDAL latest
 conda install -c conda-forge pdal python-pdal gdal
 ```
+:::
+
+::: info
+
+Nach Ende des Workshops lässt sich das Environment mit folgendem Befehl entfernen:
+```bash
+conda env remove --name pdal
+``` 
 :::
 
 - [QGIS Version >= 3.28](https://qgis.org/de/site/forusers/download.html)
