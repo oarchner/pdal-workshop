@@ -11,7 +11,7 @@ jobs:
     - name: checkoutS
       uses: actions/checkout@v3
     - name: dependencies
-      run: yarn --cwd doku
+      run: yarn --cwd doku install --frozen-lockfile
     - name: build
       run: yarn --cwd doku/docs docs:build
 
