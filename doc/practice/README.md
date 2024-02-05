@@ -33,11 +33,15 @@ pdal
 pdal --version
 ```
 
-## Anwendungen
+::: info
+Alle Beispiele wurden mit der PDAL Version 2.6.2 getestet.
+:::
 
 ::: info
 Bei allen Anwendungen kann der Log-Level zur Steuerung der Log-Meldungen in der Konsole über das Flag -v [0-8] gesetzt werden.
 :::
+
+## Anwendungen
 
 ### Info
 
@@ -49,8 +53,6 @@ pdal info sample.laz -p 0
 
 ::: info
 Die Werte der Classification Dimension sind in der [LAS-Format Definition](https://www.asprs.org/wp-content/uploads/2019/07/LAS_1_4_r15.pdf) der American Society for Photogrammetry & Remote Sensing (ASPRS) wie folgt definiert:
-
-
 
 | Wert  | Meaning                       |
 | ----- | ----------------------------- |
