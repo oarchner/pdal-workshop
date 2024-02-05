@@ -1,15 +1,15 @@
 [
-    "crop2014g.laz",
-    {
-      "type":"filters.overlay",
-      "dimension":"Classification",
-      "datasource":"classification.geojson",
-      "layer":"classification",
-      "column":"name"
-    },
-    {
-      "type":"filters.expression",
-      "expression":"Classification==33"
-    },
-    "overlay2014.laz"
+  "crop2014g.laz",
+  {
+    "type": "filters.overlay",
+    "dimension": "UserData",
+    "datasource": "classification.geojson",
+    "layer": "classification",
+    "column": "name"
+  },
+  {
+    "type": "filters.expression",
+    "expression": "UserData==33"
+  },
+  "overlay2014.laz"
 ]

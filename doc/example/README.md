@@ -12,7 +12,7 @@ conda activate pdal
 ```
 
 Wechsle anschließend mit 'cd' in das WS-Verzeichnis.
-  
+
 :::
 
 ## 1. Merge
@@ -65,19 +65,24 @@ Betrachte die Datei `crop2014.laz` in QGIS
    ::: details
    ![](./ex3_QGIS-tab-stats-las.png)
    :::
-9. Neue 3D Kartenansicht anlegen mit Menu 'View/3D Map Views/New 3D Map View'
-10. 3D Map View zeigt Layer
-11. Configuration öffnen
-12. Shadows aktivieren  
+9. Tab: Elevation öffnen
+10. Damit in der 3D Ansicht auf die Scene gezoomt werden kann, ändern wir den Elevation Offset von 0 auf -450m  
+    ::: details
+    ![](./ex3_QGIS-3d-elevation_offset.png)
+    :::
+11. Neue 3D Kartenansicht anlegen mit Menu 'View/3D Map Views/New 3D Map View'
+12. 3D Map View zeigt Layer
+13. Configuration öffnen
+14. Shadows aktivieren  
     ::: details
     ![](./ex3_QGIS-3d-view-show-shadows.png)  
     :::
 
-13. Navigation: Zoom in/out über Maus-Wheel-Rad
-14. 3D Map view zeigt LAS mit Schatten
-  ::: details
-  ![](./ex3_QGIS-3d-view-las.png)  
-   :::
+15. Navigation: Zoom in/out über Maus-Wheel-Rad
+16. 3D Map view zeigt LAS mit Schatten
+    ::: details
+    ![](./ex3_QGIS-3d-view-las.png)  
+     :::
 
 ::: info
 Um das Handling von großen Point Cloud Daten zu verbessern, erzeugt QGIS beim erstmaligen Lesen einer LAS/LAZ Datei eine [Cloud Optimized Point Cloud Datei](https://mapscaping.com/cloud-optimized-point-clouds-in-qgis/) mit der Endung `.copc.laz` im Verzeichnis der Originaldatei. Falls sich die Originaldatei ändert, muss der Cache manuell gelöscht werden.
@@ -88,7 +93,7 @@ Weitere Möglichkeiten zur Darstellung von 3D-Daten werden im QGIS-Handbuch erl�
 
 - [Working with Point Clouds](https://docs.qgis.org/3.28/en/docs/user_manual/working_with_point_clouds/point_clouds.html#)
 - [3D Map View](https://docs.qgis.org/3.28/en/docs/user_manual/map_views/3d_map_view.html)
-:::
+  :::
 
 ## 4. Punktdichtekontrolle
 
@@ -166,17 +171,17 @@ pdal pipeline e07_overlay_expression.json
 
 :::
 
-
 ::: details QGIS Karte
 ![](./ex7_QGIS_Overlay.png)
 :::
 
 ## 8. Ground Klassifikation
 
-Pipeline 
-- Reset der Classification Dimension mit [filters.assign](https://pdal.io/en/latest/stages/filters.assign.html)  
-- Klassifizierung der Ground Points mit [filters.smrf](https://pdal.io/en/latest/stages/filters.smrf.html)  
-- Reduzieren der Ausgabepunkte auf die Ground-Points (Classification==2) mit [filters.expression](https://pdal.io/en/latest/stages/filters.smrf.html)  
+Pipeline
+
+- Reset der Classification Dimension mit [filters.assign](https://pdal.io/en/latest/stages/filters.assign.html)
+- Klassifizierung der Ground Points mit [filters.smrf](https://pdal.io/en/latest/stages/filters.smrf.html)
+- Reduzieren der Ausgabepunkte auf die Ground-Points (Classification==2) mit [filters.expression](https://pdal.io/en/latest/stages/filters.smrf.html)
 - Schreibe LAS-Datei
 
 ::: details Pipeline e08_ground.json
@@ -257,16 +262,18 @@ Klassifikation der Bäume in einer Pipeline aus [filters.hag_delaunay](https://p
 :::
 
 ::: details Aufruf
+
 ```bash
 # Achtung: Die Berechnung dauert ca. 2 min. bis ca. 150 Bäume erkannt werden ....
 pdal -v 8 pipeline e10_tree.json
 ```
+
 :::
 
-::: details QGIS 
+::: details QGIS
 2D Karte  
 ![2D Karte](./ex10_QGIS_MapView.png)  
-3D View   
+3D View  
 ![3D View](./ex10_QGIS_3DView.png)
 :::
 
@@ -276,15 +283,16 @@ Pipeline zur Berechnung der maximalen Höhe über Grund für jeden Baum. Die Pip
 @[code](./e10_tree_stats.json)
 :::
 
-
-::: details Python Datei `lib.py` 
+::: details Python Datei `lib.py`
 @[code](./lib.py)
 :::
 
 ::: details Aufruf
+
 ```bash
 pdal pipeline e10_tree_stats.json
 ```
+
 :::
 
 ::: details QGIS
@@ -293,8 +301,8 @@ pdal pipeline e10_tree_stats.json
 
 :::
 
-
 ## 11. DOP als RGB Farbwert
+
 Zuweisen von Farbwerten aus einer Raster-Datei mit [filters.colorization](https://pdal.io/en/latest/stages/filters.colorization.html)
 
 ::: details Pipeline e11_dop.json
@@ -302,17 +310,19 @@ Zuweisen von Farbwerten aus einer Raster-Datei mit [filters.colorization](https:
 :::
 
 ::: details Aufruf
+
 ```bash
 pdal pipeline e11_dop.json
 ```
+
 :::
 
 ::: details QGIS 3D View
-3D View   
+3D View  
 ![3D View](./ex11_3D_DOP.png)
 :::
 
-## 12. Schutzwalddarstellung 
+## 12. Schutzwalddarstellung
 
 Skalieren von Farbwerten mit Hilfe von [filters.assign](https://pdal.io/en/latest/stages/filters.assign.html)
 
@@ -321,11 +331,13 @@ Skalieren von Farbwerten mit Hilfe von [filters.assign](https://pdal.io/en/lates
 :::
 
 ::: details Aufruf
+
 ```bash
 pdal pipeline e12_dop_sample.json
 ```
+
 :::
 
-::: details 3D View   
+::: details 3D View  
 ![3D View](./ex11_3D_DOP_sample.png)
 :::
